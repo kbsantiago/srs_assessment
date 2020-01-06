@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package api;
+option go_package = "customerpb";
+
+message Customer {
+    string id = 1;
+    string cpf = 2;
+    string nome = 3;
+    string endereco = 4;
+    string dividas = 5;
+}
+
+message CreateCustomerRequest {
+	Customer customer = 1;
+}
+message CreateCustomerResponse {
+	string message = 1;
+}
+message FindByDocumentRequest {
+	string document = 1;
+}
+message FindByDocumentResponse {
+	Customer customer = 1;
+}
+
+service CustomerService {
+	rpc CreateCustomer (CreateCustomerRequest) returns (CreateCustomerResponse);
+	rpc FindByDocument (FindByDocumentRequest) returns (FindByDocumentResponse);
+}

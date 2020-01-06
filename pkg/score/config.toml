@@ -1,0 +1,3 @@
+server = "localhost"
+database = "CustomerData"
+connections = 5
